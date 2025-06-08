@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15
-    container_name: imula_postgres
+    container_name: imula_postgres_lab
     environment:
       POSTGRES_DB: laboratoriodb
       POSTGRES_USER: postgres

@@ -1,5 +1,11 @@
 package com.ms_laboratorio.model;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,17 +23,17 @@ public class LaboratoryModel {
     private Boolean laboratoryAvailability;
 
     //@ManyToMany(mappedBy = "laboratoriesList")
-    //@JsonIgnore
-    //private Set<SoftwareModel> softwaresInstalled;
+    @JsonIgnore
+    private Set<UUID> softwaresInstalled;
 
     public LaboratoryModel() {
-        //softwaresInstalled = new LinkedHashSet<>();
+        softwaresInstalled = new LinkedHashSet<>();
     }
 
-    public LaboratoryModel(String laboratoryName, Boolean laboratoryAvailability) {
+    public LaboratoryModel(String laboratoryName, Boolean laboratoryAvailability, Set<UUID> softwaresInstalled) {
         this.laboratoryName = laboratoryName;
         this.laboratoryAvailability = laboratoryAvailability;
-        //this.softwaresInstalled = softwaresInstalled;
+        this.softwaresInstalled = softwaresInstalled;
     }
 
     public Long getLaboratoryId() {
@@ -50,11 +56,11 @@ public class LaboratoryModel {
         this.laboratoryAvailability = laboratoryAvailability;
     }
 
-    /*public Set<SoftwareModel> getSoftwaresInstalled() {
+    public Set<UUID> getSoftwaresInstalled() {
         return softwaresInstalled;
     }
 
-    public void setSoftwaresInstalled(Set<SoftwareModel> listSoftware) {
+    public void setSoftwaresInstalled(Set<UUID> listSoftware) {
         this.softwaresInstalled = listSoftware;
-    }*/
+    }
 }
