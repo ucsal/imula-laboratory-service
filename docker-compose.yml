@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: imula_postgres
+    environment:
+      POSTGRES_DB: laboratoriodb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGPORT: 5445
+    ports:
+      - "5445:5445"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
